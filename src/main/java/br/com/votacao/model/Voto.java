@@ -11,18 +11,20 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 
-public class Pauta {
-
+public class Voto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String titulo;
+    @Column(nullable = false, unique =  true)
+    private String cpfAssociado;
 
-    private String descricao;
-    
-    @OneToOne(mappedBy = "pauta", cascade = CascadeType.ALL)
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private OpcaoVoto voto;
+
+    @ManyToMany
+    @JoinColumn(name = "sessao_id", nullable = false)
     private SessaoVotacao sessao;
     
 }
