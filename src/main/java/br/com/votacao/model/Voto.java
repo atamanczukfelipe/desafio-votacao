@@ -23,7 +23,7 @@ public class Voto {
     @Column(nullable = false)
     private OpcaoVoto voto;
 
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "sessao_id", nullable = false)
     private SessaoVotacao sessao;
     
