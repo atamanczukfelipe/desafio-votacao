@@ -19,14 +19,3 @@ public class SwaggerConfig {
     }
     
 }
-//  Dependência no pom.xml (caso ainda não adicionada)
-// <dependency>
-//   <groupId>org.springdoc</groupId>
-//   <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-//   <version>2.0.2</version>
-// </dependency>
-
-// Acesse após subir o projeto:
-// http://localhost:8080/swagger-ui.html
-// ou
-// http://localhost:8080/swagger-ui/index.html
