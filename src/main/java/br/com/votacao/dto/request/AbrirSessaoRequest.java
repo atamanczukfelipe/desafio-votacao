@@ -8,4 +8,9 @@ public class AbrirSessaoRequest {
     @NotNull
     private Long pautaId;
     private Long duracaoEmMinutos;
+
+    public AbrirSessaoRequest(Long pautaId, Long duracaoEmMinutos){
+        this.pautaId = pautaId;
+        this.duracaoEmMinutos = duracaoEmMinutos;
+    }
 }
