@@ -3,7 +3,7 @@
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
 
     <!-- Appender de Auditoria -->
-    <appender name="AUDIT_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="AUDIT" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>logs/voto-auditoria.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>logs/voto-auditoria.%d{yyyy-MM-dd}.log</fileNamePattern>
@@ -28,7 +28,7 @@
 
     <!-- Logger de Auditoria -->
     <logger name="br.com.votacao.config.RequestLoggingInterceptor" level="INFO" additivity="false">
-        <appender-ref ref="AUDIT_FILE"/>
+        <appender-ref ref="AUDIT"/>
     </logger>
 
     <!-- Logger padrão para INFO -->
