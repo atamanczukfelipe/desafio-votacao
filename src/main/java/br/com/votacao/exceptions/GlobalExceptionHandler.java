@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-//@RestControllerAdvice -> Problema com esse cara aqui, conflito de lib, ou algo assim
+@RestControllerAdvice //-> Problema com esse cara aqui, conflito de lib, ou algo assim
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
