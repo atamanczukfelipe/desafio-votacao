@@ -33,7 +33,7 @@ public class VotoService {
             throw new IllegalStateException("CPF já votou nesta sessão");
         }
 
-        OpcaoVoto votoEnum = OpcaoVoto.valueOf(request.getVoto().toUpperCase());
+        OpcaoVoto votoEnum = request.getVoto();
 
         Voto voto = Voto.builder()
                         .cpfAssociado(request.getCpfAssociado())
