@@ -1,5 +1,6 @@
 package br.com.votacao.dto.request;
 
+import br.com.votacao.model.OpcaoVoto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -13,5 +14,11 @@ public class VotoRequest {
     private String cpfAssociado;
 
     @NotNull
-    private String voto;
+    private OpcaoVoto voto;
+
+    public VotoRequest(Long sessaoId, String cpfAssociado, OpcaoVoto voto){
+        this.sessaoId = sessaoId;
+        this.cpfAssociado = cpfAssociado;
+        this.voto = voto;
+    }
 }
