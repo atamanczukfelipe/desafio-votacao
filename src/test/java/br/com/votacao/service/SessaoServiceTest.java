@@ -89,4 +89,27 @@ class SessaoServiceTest {
         assertTrue(resultado.getDataFechamento().isAfter(LocalDateTime.now()));
     }
 
+    @Test
+    void buscarSessaoEncerrada(){
+
+        Long sessaoId = 2L;
+
+        SessaoVotacao sessaoEncerrada = SessaoVotacao.builder()
+                .id(sessaoId)
+                .pauta(Pauta.builder().id(2L).titulo("Pauta Teste 2").build())
+                .dataAbertura(LocalDateTime.now().minusMinutes(10))
+                .dataFechamento(LocalDateTime.now().minusMinutes(1))
+                .votos(List.of())
+                .build();
+
+
+        when(sessaoVotacaoRepository.findById(sessaoId)).thenReturn(Optional.of(sessaoEncerrada));
+
+        IllegalStateException ex = assertThrows(IllegalStateException.class, () ->{
+            sessaoService.buscarSessaoAtiva(sessaoId);
+        });
+
+        assertEquals("Sessão de Votação Encerrada", ex.getMessage());
+    }
+
 }
